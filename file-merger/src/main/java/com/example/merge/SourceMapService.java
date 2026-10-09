@@ -28,7 +28,7 @@ public class SourceMapService {
     MergeConfig config;
 
     public Map<String, List<SourceRow>> sourceMap() throws IOException {
-        Path merged = config.outputDir().resolve(config.outputFile());
+if (!Files.exists(merged)) {
         if (!Files.isRegularFile(merged)) {
             throw new MergedFileMissingException(merged);
         }
