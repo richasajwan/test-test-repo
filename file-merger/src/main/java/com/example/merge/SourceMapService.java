@@ -28,7 +28,7 @@ public class SourceMapService {
     MergeConfig config;
 
     public Map<String, List<SourceRow>> sourceMap() throws IOException {
-if (!Files.exists(merged)) {
+        Path merged = config.outputDir().resolve(config.outputFile());
         if (!Files.isRegularFile(merged)) {
             throw new MergedFileMissingException(merged);
         }
@@ -52,7 +52,7 @@ if (!Files.exists(merged)) {
                 cells.put(header.get(i), values.get(i));
             }
 
-String entityKey = KEY_BY_SOURCE.get(cells.get("source_file"));
+            String key = KEY_BY_SOURCE.get(cells.get("source_file"));
             if (key != null) {
                 result.get(key).add(toRow(cells));
             }
