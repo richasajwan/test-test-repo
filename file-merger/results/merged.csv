@@ -1,0 +1,9 @@
+source_file,customer_id,name,email,order_id,product_id,quantity,product_name,price
+customers.csv,C001,Alice Johnson,alice@example.com,,,,,
+customers.csv,C002,Bob Smith,bob@example.com,,,,,
+customers.csv,C003,Carol White,carol@example.com,,,,,
+orders.csv,C001,,,O100,P10,2,,
+orders.csv,C002,,,O101,P20,1,,
+orders.csv,C001,,,O102,P20,5,,
+products.csv,,,,,P10,,Keyboard,49.99
+products.csv,,,,,P20,,Mouse,19.99
