@@ -52,7 +52,7 @@ if (!Files.exists(merged)) {
                 cells.put(header.get(i), values.get(i));
             }
 
-            String key = KEY_BY_SOURCE.get(cells.get("source_file"));
+String entityKey = KEY_BY_SOURCE.get(cells.get("source_file"));
             if (key != null) {
                 result.get(key).add(toRow(cells));
             }
