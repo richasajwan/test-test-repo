@@ -9,8 +9,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 /**
- * Entry point: reads the configured input files, merges them, and writes the result
- * into the results folder. Exits with code 1 if the merge fails.
+ * Entry point: merges the configured input files into the results folder, then keeps
+ * the HTTP server running so the source-map API can serve the merged output.
  */
 @QuarkusMain
 public class FileMergerApp implements QuarkusApplication {
@@ -30,6 +30,8 @@ public class FileMergerApp implements QuarkusApplication {
 
         System.out.println(result.report());
         System.out.println("Merged output written to " + output.toAbsolutePath());
+        System.out.println("Source map API: GET http://localhost:8080/source-map");
+        Quarkus.waitForExit();
         return 0;
     }
 
